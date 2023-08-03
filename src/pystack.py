@@ -14,36 +14,39 @@ class PystackClient:
 
     def __init__(self, pystack_key):
         self.pystack_key = pystack_key
-        self.base_url = "https://api.paystack.co"
+        self.base_url = "api.paystack.co"
         self.identity_verification = IdentityVerificationClient(pystack_key)
         self.recurring = PaystackRecurringClient(pystack_key)
     
     def send_request(self, method, path, data=None):
         connection = http.client.HTTPSConnection(self.base_url)
         headers = {
-                "Authorization": f"Bearer {self.pystack_key}",
-                "Content-Type": "application/json",
-                }
+            "Authorization": f"Bearer {self.pystack_key}",
+            "Content-Type": "application/json",
+        }
         if data is not None:
-            data = json.dumps(data)
+            data = json.dumps(data).encode('utf-8')
 
-        connection.request(method, path, data=data, headers=headers)
+        connection.request(method, path, body=data, headers=headers)
+
         response = connection.getresponse()
         response_data = json.loads(response.read().decode())
         connection.close()
 
+        return response_data
+    
     # Initiate Payment. User extends this into their app to intitiate a payment, See the docs. 
     def initiatePayment(self, amount, email):
         data = {
             "amount": amount * 100,  
             "email": email,
         }
-        response = self._send_request("POST", "/transaction/initialize", data)
-        return response
+        response_data = self.send_request("POST", "/transaction/initialize", data)
+        return response_data
    
     # Verify payment using reference code.
     def verifyPayment(self, reference):
-        response = self._send_request("GET", f"/transaction/verify/{reference}")
+        response = self.send_request("GET", f"/transaction/verify/{reference}")
         return response
 
     # Perform identity verification.
