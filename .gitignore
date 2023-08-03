@@ -1,0 +1,22 @@
+# Python related
+*.py[cod]
+__pycache__/
+*.pyc
+*.pyo
+
+# Development related
+*.env
+*.log
+*.swp
+.DS_Store
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+*.whl
+
+# Virtual environment
+venv/
+
