@@ -13,7 +13,7 @@ setup(
         'Bug Tracker': 'https://github.com/grayoj/pystack/issues',
         'Source Code': 'https://github.com/grayoj/pystack',
     },
-    packages=['pystack'],
+    package_dir={'': 'src'}, 
     python_requires='>=3.6',
     install_requires=[
         'http.client',
