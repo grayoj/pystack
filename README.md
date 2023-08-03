@@ -43,12 +43,12 @@ from pystack import PystackClient
 YOUR_KEY = 'YOUR_KEY'
 
 # Create a PaystackClient object
-pystack = PystackClient(secret_key=YOUR_KEY)
+pystack = PystackClient(pystack_key=YOUR_KEY)
 
 # Now we initiate a payment
 amount = 5000  # The amount to send in the request
 email = 'pystack@pystack.com'  # The customer's email address
-payment_response = pystack.initiate_payment(amount=amount, email=email)
+payment_response = pystack.initiatePayment(amount=amount, email=email)
 ```
 
 Look how much boilerplate code you saved above.
@@ -64,17 +64,17 @@ from pystack import PystackClient
 YOUR_KEY = 'YOUR_KEY'
 
 # Create a PaystackClient object
-pystack = PystackClient(secret_key=YOUR_KEY)
+pystack = PystackClient(pystack=YOUR_KEY)
 
 # Now we initiate a payment
 amount = 5000  # The amount to send in the request
 email = 'pystack@pystack.com'  # The customer's email address
-payment_response = pystack.initiate_payment(amount=amount, email=email)
+payment_response = pystack.initiatePayment(amount=amount, email=email)
 
 # Condition to verify the payment
 if payment_response['status']:
     transaction_reference = payment_response['data']['reference']
-    verification_response = pystack.verify_payment(reference=transaction_reference)
+    verification_response = pystack.verifyPayment(reference=transaction_reference)
 
     if verification_response['status']:
         print("Payment was successful.")
