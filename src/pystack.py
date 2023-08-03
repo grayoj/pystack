@@ -8,7 +8,7 @@ Kindly see the documentation for better assistance.
 import http.client
 import json
 from .identity_verification import IdentityVerificationClient
-
+from .recurring import PaystackRecurringClient
 
 class PystackClient:
 
@@ -16,6 +16,7 @@ class PystackClient:
         self.pystack_key = pystack_key
         self.base_url = "https://api.paystack.co"
         self.identity_verification = IdentityVerificationClient(pystack_key)
+        self.recurring = PaystackRecurringClient(pystack_key)
     
     def send_request(self, method, path, data=None):
         connection = http.client.HTTPSConnection(self.base_url)
@@ -45,9 +46,19 @@ class PystackClient:
         response = self._send_request("GET", f"/transaction/verify/{reference}")
         return response
 
-    # Perform identity verification
+    # Perform identity verification.
     def resolve_card_bin(self, card_bin):
         return self.identity_verification.resolve_card_bin(card_bin)
 
     def resolve_account_number(self, account_number, bank_code):
         return self.identity_verification.resolve_account_number(account_number, bank_code)
+
+    # For recurring charges and subscriptions.
+    def create_subscription(self, customer_email, plan_code):
+        return self.recurring.create_subscription(customer_email, plan_code)
+
+    def charge_subscription(self, subscription_code, authorization_code, email):
+        return self.recurring.charge_subscription(subscription_code, authorization_code, email)
+
+    def disable_subscription(self, subscription_code):
+        return self.recurring.disable_subscription(subscription_code)
