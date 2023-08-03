@@ -7,7 +7,7 @@ Handle Identity Verification, using Paystack's API
 class IdentityVerificationClient:
     def __init__(self, pystack_key):
         self.pystack_key = pystack_key
-        self.base_url = "https://api.paystack.co"
+        self.base_url = "api.paystack.co"
 
     def _send_request(self, method, path, data=None, params=None):
         connection = http.client.HTTPSConnection(self.base_url)
