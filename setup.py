@@ -1,12 +1,19 @@
 from setuptools import setup
+import pathlib
+ 
+PATH = pathlib.Path(__file__).parent
+
+ 
+README = (PATH / "README.md").read_text()
+
 
 setup(
-    name='pystack',
+    name='pystack-sdk',
     version='0.1.0',
     author='Gerald Maduabuchi',
     author_email='Mgeraldoj07@gmail.com',
     description='A Python API wrapper designed to streamline Paystack integrations within Python projects.',
-    long_description='A Python API wrapper designed to streamline Paystack integrations within Python projects. This library provides easy-to-use functions for handling payment processing, identity verification, recurring charges, and subscriptions using the Paystack API.',
+    long_description=README,
     long_description_content_type='text/markdown',
     url='https://github.com/grayoj/pystack',
     project_urls={
