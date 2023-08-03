@@ -7,8 +7,8 @@ Kindly see the documentation for better assistance.
 
 import http.client
 import json
-from .identity_verification import IdentityVerificationClient
-from .recurring import PaystackRecurringClient
+from identity import IdentityVerificationClient
+from recurring import PaystackRecurringClient
 
 class PystackClient:
 
