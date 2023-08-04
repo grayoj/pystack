@@ -1,6 +1,6 @@
 # pystack.
 
-A Python API wrapper designed to streamline Paystack integrations within Python projects, (Django, Flask, etc) Paystack does not natively provide an sdk or wrapper client for Python. I was working on a project once and I found myself writing boilerplate code rather than focusing on integrating payments into my service.
+[Pystack](https://pypi.org/project/pystack-sdk/) is a Python API wrapper designed to streamline Paystack integrations within Python projects, (Django, Flask, etc) Paystack does not natively provide an sdk or wrapper client for Python. I was working on a project once and I found myself writing boilerplate code rather than focusing on integrating payments into my service.
 
 ## Features
 
@@ -11,7 +11,7 @@ A Python API wrapper designed to streamline Paystack integrations within Python 
 
 ## Getting Started
 
-The package is available on PyPi. In any project, run: `pip3 install pystack.`
+[The package is available on PyPi](https://pypi.org/project/pystack-sdk/). In any project, run: `pip3 install pystack.`
 
 ## Usage
 
