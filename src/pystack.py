@@ -17,6 +17,7 @@ class PystackClient:
         self.base_url = "api.paystack.co"
         self.identity_verification = IdentityVerificationClient(pystack_key)
         self.recurring = PaystackRecurringClient(pystack_key)
+
     
     def send_request(self, method, path, data=None):
         connection = http.client.HTTPSConnection(self.base_url)

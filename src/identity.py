@@ -9,6 +9,7 @@ class IdentityVerificationClient:
         self.pystack_key = pystack_key
         self.base_url = "api.paystack.co"
 
+
     def _send_request(self, method, path, data=None, params=None):
         connection = http.client.HTTPSConnection(self.base_url)
         headers = {
@@ -30,6 +31,7 @@ class IdentityVerificationClient:
     """
     Resolve account bin
     """
+
     def resolve_card_bin(self, card_bin):
         return self._send_request("GET", f"/decision/bin/{card_bin}")
 

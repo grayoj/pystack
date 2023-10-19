@@ -1,14 +1,14 @@
 '''
-Gerald Maduabuchi Okereke, 2023
 This module performs recurring payments or subscriptions.
 '''
 import http.client
 import json
 
+
 class PaystackRecurringClient:
     def __init__(self, pystack_key):
         self.pystack_key = pystack_key
-        self.base_url = "api.paystack.co"
+        self.base_url = "https://api.paystack.co"
 
     def _send_request(self, method, path, data=None):
         connection = http.client.HTTPSConnection(self.base_url)
