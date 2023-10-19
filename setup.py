@@ -1,11 +1,9 @@
 from setuptools import setup
 import pathlib
- 
+
 PATH = pathlib.Path(__file__).parent
 
- 
 README = (PATH / "README.md").read_text()
-
 
 setup(
     name='pystack-sdk',
@@ -20,11 +18,9 @@ setup(
         'Bug Tracker': 'https://github.com/grayoj/pystack/issues',
         'Source Code': 'https://github.com/grayoj/pystack',
     },
-    package_dir={'': 'src'}, 
+    package_dir={'': 'src'},
     python_requires='>=3.6',
     install_requires=[
-        'http.client',
-        'json',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -38,4 +34,3 @@ setup(
     ],
     keywords='paystack payment integration api wrapper python',
 )
-
